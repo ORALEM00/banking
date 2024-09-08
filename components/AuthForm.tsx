@@ -11,11 +11,11 @@ import { Button } from "@/components/ui/button"
 import {
   Form,
 } from "@/components/ui/form"
-
 import CustomInput from './CustomInput';
 import { authFormSchema } from '@/lib/utils';
 import { Loader2 } from 'lucide-react';
 import { useRouter } from 'next/navigation';
+import { signIn,signUp } from '@/lib/actions/user.actions';
 
 
 const AuthForm = ({ type }: { type: string }) => {
@@ -55,18 +55,18 @@ const AuthForm = ({ type }: { type: string }) => {
             password: data.password
           }
 
-          // const newUser = await signUp(userData);
+          const newUser = await signUp(userData);
 
-          // setUser(newUser);
+          setUser(newUser);
         }
 
         if(type === 'sign-in') {
-          // const response = await signIn({
-          //   email: data.email,
-          //   password: data.password,
-          // })
+          const response = await signIn({
+            email: data.email,
+            password: data.password,
+          })
 
-          // if(response) router.push('/')
+          if(response) router.push('/')
         }
       } catch (error) {
         console.log(error);
@@ -99,7 +99,7 @@ const AuthForm = ({ type }: { type: string }) => {
               <p className="text-16 font-normal text-gray-600">
                 {user 
                   ? 'Enlaza tu cuenta para iniciar'
-                  : 'Ingresa kis detalles por favor'
+                  : 'Llena todo el formulario por favor'
                 }
               </p>  
             </h1>
