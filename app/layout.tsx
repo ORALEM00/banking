@@ -11,7 +11,7 @@ const ibmPlexSerif = IBM_Plex_Serif({
 
 
 export const metadata: Metadata = {
-  title: "Create Next App",
+  title: "App",
   description: "La plataforma más moderna de bancos",
   icons: {
     icon: '/icons/logo.svg'
