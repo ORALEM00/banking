@@ -92,7 +92,7 @@ const AuthForm = ({ type }: { type: string }) => {
           <div className="flex flex-col gap-1 md:gap-3">
             <h1 className="text-24 lg:text-36 font-semibold text-gray-900">
               {user 
-                ? 'Cuenta'
+                ? 'Cuenta enlazada'
                 : type === 'sign-in'
                   ? 'Iniciar sesión'
                   : 'Registrarse'
@@ -120,7 +120,7 @@ const AuthForm = ({ type }: { type: string }) => {
                     <CustomInput control={form.control} name='firstName' label="Nombre" placeholder='Ingresa tu nombre' />
                     <CustomInput control={form.control} name='lastName' label="Apellidos" placeholder='Ingresa tus apellidos' />
                   </div>
-                  <CustomInput control={form.control} name='address1' label="Direcicón" placeholder='Ingresa tu dirección específica' />
+                  <CustomInput control={form.control} name='address1' label="Dirección" placeholder='Ingresa tu dirección específica' />
                   <CustomInput control={form.control} name='city' label="Ciudad" placeholder='Ingresa tu ciudad' />
                   <div className="flex gap-4">
                     <CustomInput control={form.control} name='state' label="Estado" placeholder='Ejemplo: NL' />
