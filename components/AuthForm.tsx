@@ -57,7 +57,7 @@ const AuthForm = ({ type }: { type: string }) => {
 
           const newUser = await signUp(userData);
 
-          // setUser(newUser);
+          setUser(newUser);
         }
 
         if(type === 'sign-in') {
@@ -91,7 +91,7 @@ const AuthForm = ({ type }: { type: string }) => {
           <div className="flex flex-col gap-1 md:gap-3">
             <h1 className="text-24 lg:text-36 font-semibold text-gray-900">
               {user 
-                ? 'Link Account'
+                ? 'Cuenta'
                 : type === 'sign-in'
                   ? 'Iniciar sesión'
                   : 'Registrarse'
@@ -122,12 +122,12 @@ const AuthForm = ({ type }: { type: string }) => {
                   <CustomInput control={form.control} name='address1' label="Direcicón" placeholder='Ingresa tu dirección específica' />
                   <CustomInput control={form.control} name='city' label="Ciudad" placeholder='Ingresa tu ciudad' />
                   <div className="flex gap-4">
-                    <CustomInput control={form.control} name='state' label="Estado" placeholder='Ejemplo: Nuevo León' />
-                    <CustomInput control={form.control} name='postalCode' label="Código postal" placeholder='Example: 11101' />
+                    <CustomInput control={form.control} name='state' label="Estado" placeholder='Ejemplo: NL' />
+                    <CustomInput control={form.control} name='postalCode' label="Código postal" placeholder='Ejemplo: 11101' />
                   </div>
                   <div className="flex gap-4">
                     <CustomInput control={form.control} name='dateOfBirth' label="Cumpleaños" placeholder='YYYY-MM-DD' />
-                    <CustomInput control={form.control} name='ssn' label="SSN" placeholder='Example: 1234' />
+                    <CustomInput control={form.control} name='ssn' label="SSN" placeholder='Ejemplo: 1234' />
                   </div>
                 </>
               )}

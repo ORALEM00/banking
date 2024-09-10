@@ -1,6 +1,8 @@
 "use server";
 
 import { Client, Account, Databases, Users } from "node-appwrite";
+
+import { redirect } from "next/navigation"; 
 import { cookies } from "next/headers";
 
 export async function createSessionClient() {
