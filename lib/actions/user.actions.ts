@@ -7,7 +7,10 @@ import { encryptId, extractCustomerIdFromUrl, parseStringify } from "../utils";
 
 export const signIn = async ({ email, password }: signInProps) => {
     try {
-      
+      const { account } = await createAdminClient();
+      const session = await account.createEmailPasswordSession(email, password);
+
+      return parseStringify(session);
     } catch (error) {
       console.error('Error', error);
     }
@@ -44,8 +47,13 @@ export const signIn = async ({ email, password }: signInProps) => {
   export async function getLoggedInUser() {
     try {
       const { account } = await createSessionClient();
-      return await account.get();
+      const result = await account.get();
+  
+
+  
+      return parseStringify(result);
     } catch (error) {
+      console.log(error)
       return null;
     }
   }
