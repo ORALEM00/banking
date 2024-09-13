@@ -1,7 +1,6 @@
 import {
     Table,
     TableBody,
-    TableCaption,
     TableCell,
     TableHead,
     TableHeader,
@@ -31,12 +30,12 @@ import {
       <Table>
         <TableHeader className="bg-[#f9fafb]">
           <TableRow>
-            <TableHead className="px-2">Trannsacion</TableHead>
+            <TableHead className="px-2">Transacción</TableHead>
             <TableHead className="px-2">Monto</TableHead>
             <TableHead className="px-2">Estado</TableHead>
             <TableHead className="px-2">Fecha</TableHead>
             <TableHead className="px-2 max-md:hidden">Canal</TableHead>
-            <TableHead className="px-2 max-md:hidden">Categoria</TableHead>
+            <TableHead className="px-2 max-md:hidden">Categoría</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
