@@ -44,7 +44,7 @@ const PlaidLink = ({ user, variant }: PlaidLinkProps) => {
           disabled={!ready}
           className="plaidlink-primary"
         >
-          Conectar Banco
+          Conectar banco
         </Button>
       ): variant === 'ghost' ? (
         <Button onClick={() => open()} variant="ghost" className="plaidlink-ghost">
@@ -54,7 +54,7 @@ const PlaidLink = ({ user, variant }: PlaidLinkProps) => {
             width={24}
             height={24}
           />
-          <p className='hiddenl text-[16px] font-semibold text-black-2 xl:block'>Conectar Banco</p>
+          <p className='hiddenl text-[16px] font-semibold text-black-2 xl:block'>Conectar banco</p>
         </Button>
       ): (
         <Button onClick={() => open()} className="plaidlink-default">
@@ -64,7 +64,7 @@ const PlaidLink = ({ user, variant }: PlaidLinkProps) => {
             width={24}
             height={24}
           />
-          <p className='text-[16px] font-semibold text-black-2'>Conectar Banco</p>
+          <p className='text-[16px] font-semibold text-black-2'>Conectar banco</p>
         </Button>
       )}
     </>
