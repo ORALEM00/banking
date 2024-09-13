@@ -1,37 +1,55 @@
 import HeaderBox from '@/components/HeaderBox'
-import RightSidebar from '@/components/RightSidebar'
-import TotalBalanceBox from '@/components/TotalBalanceBox'
-import { getLoggedInUser } from '@/lib/actions/user.actions'
-import React from 'react'
+// import RecentTransactions from '@/components/RecentTransactions';
+import RightSidebar from '@/components/RightSidebar';
+import TotalBalanceBox from '@/components/TotalBalanceBox';
+import { getAccount, getAccounts } from '@/lib/actions/bank.actions';
+import { getLoggedInUser } from '@/lib/actions/user.actions';
 
-const Home = async () => {
+const Home = async ({ searchParams: { id, page } }: SearchParamProps) => {
+  const currentPage = Number(page as string) || 1;
   const loggedIn = await getLoggedInUser();
+  const accounts = await getAccounts({ 
+    userId: loggedIn.$id 
+  })
+
+  if(!accounts) return;
+  
+  const accountsData = accounts?.data;
+  const appwriteItemId = (id as string) || accountsData[0]?.appwriteItemId;
+
+  const account = await getAccount({ appwriteItemId })
 
   return (
     <section className="home">
-        <div className="home-content">
-            <header className='home-header'>
-                <HeaderBox 
-                    type="greeting"
-                    title="Bienvenido"
-                    user={loggedIn?.firstName || 'Invitado'}
-                    subtext="Accede y maneja tu cuenta con transaciones eficaces."
-                />
+      <div className="home-content">
+        <header className="home-header">
+          <HeaderBox 
+            type="greeting"
+            title="Bienvenid@"
+            user={loggedIn?.firstName || 'Invitado'}
+            subtext="Accede y maneja tu cuenta y transacciones eficazmente."
+          />
 
-                <TotalBalanceBox 
-                  accounts={[]}
-                  totalBanks={3}
-                  totalCurrentBalance={1250.35}
-                />
-            </header>
-            
-        </div>
-        Transitions
-            <RightSidebar 
-                user={loggedIn}
-                transactions={[]}
-                banks={[{currentBalance: '123.50'},{currentBalance: '200.50'}]}
-              />
+          <TotalBalanceBox 
+            accounts={accountsData}
+            totalBanks={accounts?.totalBanks}
+            totalCurrentBalance={accounts?.totalCurrentBalance}
+          />
+        </header>
+
+        {/* <RecentTransactions 
+          accounts={accountsData}
+          transactions={account?.transactions}
+          appwriteItemId={appwriteItemId}
+          page={currentPage}
+        /> */}
+      </div>
+
+      <RightSidebar 
+        user={loggedIn}
+        transactions={account?.transactions}
+        banks={accountsData?.slice(0, 2)}
+      />
     </section>
   )
 }
