@@ -379,4 +379,54 @@
   .sidebar-label {
     @apply text-16 font-semibold text-black-2 max-xl:hidden;
   }
+
+  .chat {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    height: 400px;
+    overflow-y: auto;
+  }
+  
+  .mainform {
+    display: flex;
+    margin-top: 10px;
+  }
+
+  .send-button {
+    margin-left: 10px;
+    padding: 10px;
+  }
+  
+  .user-chat {
+    text-align: right;
+    background-color: #21d821;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 8px;
+  }
+  
+  .ai-chat {
+    text-align: left;
+    background-color: #aa0c0c;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 8px;
+  }
+
+  .payment-transfer {
+    padding: 20px;
+  }
+  
+  .size-full {
+    width: 100%;
+  }
+  
+  .pt-5 {
+    padding-top: 5rem;
+  }
+  
 }
